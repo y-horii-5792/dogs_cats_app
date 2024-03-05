@@ -50,7 +50,7 @@ def upload_file():
             #受け取った画像を読み込み、np形式に変換
             img = image.load_img(filepath, target_size=(image_size,image_size))
             img = image.img_to_array(img)
-            #img = np.array([img])
+            img = np.array([img]) #######################
             img = np.expand_dims(img, axis=0)
             
             #img = cv2.imread( filepath )
