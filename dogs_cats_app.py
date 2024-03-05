@@ -6,7 +6,7 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing import image
 
 import numpy as np
-import cv2
+#import cv2
 
 classes = ["beagle", 
            "boxer",
