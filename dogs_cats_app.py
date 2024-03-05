@@ -18,8 +18,8 @@ classes = ["beagle",
            "Bombay",
            "British_Shorthair",
            "Ragdoll"]
-image_size = 200
-
+#image_size = 200
+image_size = 64
 
 UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
