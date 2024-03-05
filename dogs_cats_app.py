@@ -6,7 +6,7 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing import image
 
 import numpy as np
-#import cv2
+import cv2
 
 classes = ["beagle", 
            "boxer",
@@ -47,17 +47,17 @@ def upload_file():
             file.save(os.path.join(UPLOAD_FOLDER, filename))
             filepath = os.path.join(UPLOAD_FOLDER, filename)
 
-            #受け取った画像を読み込み、np形式に変換
-            img = image.load_img(filepath, target_size=(image_size,image_size))
-            img = image.img_to_array(img)
-            #img = np.array([img]) #######################
-            img = np.expand_dims(img, axis=0)
+            ##受け取った画像を読み込み、np形式に変換
+            #img = image.load_img(filepath, target_size=(image_size,image_size))
+            #img = image.img_to_array(img)
+            ##img = np.array([img]) #######################
+            #img = np.expand_dims(img, axis=0)
             
-            #img = cv2.imread( filepath )
-            #b, g, r = cv2.split(img)
-            #img = cv2.merge([r,g,b])
-            #img = cv2.resize(img,(image_size, image_size))
-            #img = img.reshape(1,image_size,image_size,3)
+            img = cv2.imread( filepath )
+            b, g, r = cv2.split(img)
+            img = cv2.merge([r,g,b])
+            img = cv2.resize(img,(image_size, image_size))
+            img = img.reshape(1,image_size,image_size,3)
             
             #データをモデルに渡して予測
             #確率の配列が戻り値
