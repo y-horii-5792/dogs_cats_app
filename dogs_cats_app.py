@@ -67,14 +67,14 @@ def upload_file():
             pred_prob  = result[pred_index]
             pred_breed = classes[pred_index]
             
-            pred_answer="エラー"
-            if pred_prob <= 0.7 :
-                pred_answer = "すみません、判定できません"
-            elif pred_prob <= 0.9 :
-                pred_answer =  pred_breed  + "かもしれません"
-            elif pred_prob <= 0.99 :
-                pred_answer =  pred_breed  + "の可能性が高いです"
-            else :
+            pred_answer = "エラー"
+            #if pred_prob <= 0.7 :
+            #    pred_answer = "すみません、判定できません"
+            #elif pred_prob <= 0.9 :
+            #    pred_answer =  pred_breed  + "かもしれません"
+            #elif pred_prob <= 0.99 :
+            #    pred_answer =  pred_breed  + "の可能性が高いです"
+            #else :
                 pred_answer =  pred_breed  + "です"
 
             return render_template("index.html",answer=pred_answer)
