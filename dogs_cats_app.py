@@ -6,7 +6,7 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing import image
 
 import numpy as np
-#import cv2
+import cv2
 
 #common
 from common import dog_cat_breed_list, NUM_CLASS, IMG_WIDTH, IMG_HEIGHT, input_img_process_cv2, input_img_process
