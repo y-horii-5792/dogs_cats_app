@@ -8,18 +8,22 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 #import cv2
 
-classes = ["beagle", 
-           "boxer",
-           "chihuahua",
-           "english_cocker_spaniel",
-           "shiba_inu",
-           "Abyssinian", 
-           "Bengal",
-           "Bombay",
-           "British_Shorthair",
-           "Ragdoll"]
-image_size = 200
-#image_size = 64
+#common
+from common import dog_cat_breed_list, NUM_CLASS, IMG_WIDTH, IMG_HEIGHT, input_img_process_cv2, input_img_process
+
+
+#classes = ["beagle", 
+#           "boxer",
+#           "chihuahua",
+#           "english_cocker_spaniel",
+#           "shiba_inu",
+#           "Abyssinian", 
+#           "Bengal",
+#           "Bombay",
+#           "British_Shorthair",
+#           "Ragdoll"]
+#image_size = 200
+##image_size = 64
 
 UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -48,10 +52,12 @@ def upload_file():
             filepath = os.path.join(UPLOAD_FOLDER, filename)
 
             #受け取った画像を読み込み、np形式に変換
-            img = image.load_img(filepath, target_size=(image_size,image_size))
-            img = image.img_to_array(img)
-            #img = np.array([img]) #######################
-            img = np.expand_dims(img, axis=0)
+            #img = image.load_img(filepath, target_size=(image_size,image_size))
+            #img = image.img_to_array(img)
+            ##img = np.array([img]) #######################
+            #img = np.expand_dims(img, axis=0)
+            img = input_img_process( filepath, IMG_WIDTH, IMG_HEIGHT, 1, 1, 0 )
+            
             
             #img = cv2.imread( filepath )
             #b, g, r = cv2.split(img)
@@ -65,7 +71,7 @@ def upload_file():
             
             pred_index = np.argmax( result )
             pred_prob  = np.max( result )
-            pred_breed = classes[pred_index]
+            pred_breed = dog_cat_breed_list[pred_index]
             
             pred_answer = "エラー"
             if pred_prob <= 0.7 :
