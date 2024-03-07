@@ -25,22 +25,29 @@ from keras.applications.vgg16 import preprocess_input
 #
 #犬種、猫種のリスト
 #
+dog_cat_breed_list = ['beagle', 
+                  'boxer',
+                  'chihuahua',
+                  'english_cocker_spaniel',
+                  'shiba_inu',
+                  'Abyssinian', 
+                  'Bengal',
+                  'Bombay',
+                  'British_Shorthair',
+                  'Ragdoll']
+
 #dog_cat_breed_list = ['beagle', 
 #                  'boxer',
 #                  'chihuahua',
 #                  'english_cocker_spaniel',
-#                  'shiba_inu',
-#                  'Abyssinian', 
-#                  'Bengal',
-#                  'Bombay',
-#                  'British_Shorthair',
-#                  'Ragdoll']
+#                  'shiba_inu']
 
-dog_cat_breed_list = ['beagle', 
-                  'boxer']
+#dog_cat_breed_list = ['beagle', 
+#                  'boxer']
 
-#NUM_CLASS = 10
-NUM_CLASS = 2
+NUM_CLASS = 10
+#NUM_CLASS = 5
+#NUM_CLASS = 2
 
 
 IMG_WIDTH  = 200
